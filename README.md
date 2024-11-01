@@ -14,3 +14,18 @@ public class MyClass {
     }
 }
 ```
+
+**2. Class-Level Lock**
+
+**What It Is:** A class-level lock is a lock associated with the Class object of a particular class. It ensures that only one thread can execute static synchronized methods or blocks for a particular class at a time, regardless of the instance.
+
+**How It Works:** When a thread acquires a class-level lock, it locks the entire class, blocking access to all other threads that want to execute any static synchronized code in that class. The lock is placed on the Class object itself, which is shared across all instances.
+
+```java
+public class MyClass {
+    public static synchronized void staticMethod() {
+        // Code here is protected by a class-level lock
+        // Only one thread can execute this method for this class, regardless of the instance
+    }
+}
+```
